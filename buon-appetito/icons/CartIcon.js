@@ -1,4 +1,4 @@
-import styles from "./footer-icons.module.css";
+import styles from "./FooterIcons.module.css";
 
 function CartIcon() {
   return (
