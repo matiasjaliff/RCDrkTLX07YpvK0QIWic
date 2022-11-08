@@ -1,7 +1,8 @@
 .container {
-  height: 100px;
+  height: 80px;
   width: 100%;
   position: fixed;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +10,7 @@
 }
 
 .logo {
-  width: 90%;
+  width: 80%;
   height: auto;
-  max-width: 400px;
+  max-width: 360px;
 }

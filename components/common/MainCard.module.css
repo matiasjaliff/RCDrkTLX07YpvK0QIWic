@@ -1,0 +1,42 @@
+.card {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  background-color: #3a94461a;
+  border: 2px solid #3a9446;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.card h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.details {
+  display: flex;
+}
+
+.price_image_container {
+  flex-basis: 60%;
+
+}
+
+.buttons_container {
+  flex-basis: 40%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}

@@ -1,4 +1,4 @@
-import MainCard from "../components/MainCard";
+import MainCard from "../components/common/MainCard";
 
 import styles from "./index.module.css";
 
@@ -14,7 +14,7 @@ export default function Home({ menu }) {
   return (
     <main className={styles.container}>
       {menu.map((pizza) => (
-        <MainCard pizza={pizza} />
+        <MainCard key={pizza.name} {...pizza} />
       ))}
     </main>
   );
