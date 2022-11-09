@@ -3,7 +3,7 @@ import CartIcon from "../icons/CartIcon";
 
 import styles from "./Footer.module.css";
 
-function Footer() {
+export default function Footer() {
   return (
     <footer className={styles.container}>
       <HouseIcon />
@@ -11,5 +11,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

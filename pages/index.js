@@ -4,12 +4,6 @@ import styles from "./index.module.css";
 
 import menu from "../db/data.json";
 
-export async function getStaticProps() {
-  return {
-    props: { menu },
-  };
-}
-
 export default function Home({ menu }) {
   return (
     <main className={styles.container}>
@@ -18,4 +12,10 @@ export default function Home({ menu }) {
       ))}
     </main>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: { menu },
+  };
 }

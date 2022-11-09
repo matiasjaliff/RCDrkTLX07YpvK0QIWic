@@ -1,6 +1,6 @@
 import styles from "./FooterIcons.module.css";
 
-function CartIcon() {
+export default function CartIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,5 +12,3 @@ function CartIcon() {
     </svg>
   );
 }
-
-export default CartIcon;

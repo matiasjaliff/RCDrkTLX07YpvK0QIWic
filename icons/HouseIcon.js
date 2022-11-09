@@ -1,6 +1,6 @@
 import styles from "./FooterIcons.module.css";
 
-function HouseIcon() {
+export default function HouseIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,5 +12,3 @@ function HouseIcon() {
     </svg>
   );
 }
-
-export default HouseIcon;
