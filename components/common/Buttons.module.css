@@ -28,3 +28,28 @@
   border: 2px solid #b42026;
   width: 2.125rem;
 }
+
+.check {
+  width: 2.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #3A9446;
+
+}
+
+.xmark {
+  width: 2.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #b42026;
+}

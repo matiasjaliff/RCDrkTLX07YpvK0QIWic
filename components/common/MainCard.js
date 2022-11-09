@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import PriceTag from "./PriceTag";
 import QuantityButtons from "./QuantityButtons";
@@ -7,7 +8,7 @@ import CustomizeButton from "./CustomizeButton";
 
 import styles from "./MainCard.module.css";
 
-export default function MainCard({ name, price, image }) {
+export default function MainCard({ id, name, price, image }) {
   return (
     <article className={styles.card}>
       <h2>{name}</h2>
@@ -27,7 +28,9 @@ export default function MainCard({ name, price, image }) {
         <div className={styles.buttons_container}>
           <QuantityButtons />
           <AddToCartButton />
+          <Link href={`/pizzas/${id}`}>
           <CustomizeButton />
+          </Link>
         </div>
       </div>
     </article>
