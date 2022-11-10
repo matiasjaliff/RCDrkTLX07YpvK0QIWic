@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 
 import { getAllPizzaNames } from "../../utils/getAllPizzaNames";
@@ -12,6 +13,16 @@ import AddToCartButton from "../../components/common/AddToCartButton";
 import styles from "./pizzas.module.css";
 
 export default function PizzaDetails({ pizzaData }) {
+  const [quantity, setQuantity] = useState(1);
+
+  function handleIncrease() {
+    if (quantity < 5) setQuantity(quantity + 1);
+  }
+
+  function handleDecrease() {
+    if (quantity > 1) setQuantity(quantity - 1);
+  }
+
   return (
     <main className={styles.container}>
       <article className={styles.card}>
@@ -23,6 +34,7 @@ export default function PizzaDetails({ pizzaData }) {
             alt={pizzaData.name}
             height={200}
             width={400}
+            priority
             className={styles.image}
           />
         </div>
@@ -30,17 +42,21 @@ export default function PizzaDetails({ pizzaData }) {
         <h3>Personaliza cada cuarto</h3>
         <div className={styles.numbers_container}>
           {[1, 2, 3, 4].map((slice) => (
-            <Quantity number={slice} />
+            <Quantity key={slice} number={slice} />
           ))}
         </div>
         <div className={styles.ingredients_container}>
           {pizzaData.ingredients.map((ingredient) => (
-            <Ingredient name={ingredient} />
+            <Ingredient key={ingredient} name={ingredient} />
           ))}
         </div>
         <div className={styles.actions_container}>
           <div>
-            <QuantityButtons />
+            <QuantityButtons
+              quantity={quantity}
+              handleIncrease={handleIncrease}
+              handleDecrease={handleDecrease}
+            />
           </div>
           <div>
             <AddToCartButton />

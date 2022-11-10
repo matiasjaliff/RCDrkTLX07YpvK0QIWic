@@ -3,7 +3,7 @@ import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function Layout({ children }) {
+export default function Layout({ children, order }) {
   return (
     <>
       <Head>
@@ -30,7 +30,7 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       {children}
-      <Footer />
+      <Footer order={order}/>
     </>
   );
 }

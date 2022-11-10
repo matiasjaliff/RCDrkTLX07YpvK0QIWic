@@ -4,12 +4,16 @@ import AddButton from "./AddButton";
 
 import styles from "./QuantityButtons.module.css";
 
-export default function QuantityButtons() {
+export default function QuantityButtons({
+  quantity,
+  handleIncrease,
+  handleDecrease,
+}) {
   return (
     <div className={styles.container}>
-      <RemoveButton />
-      <Quantity number={1} />
-      <AddButton />
+      <RemoveButton handleDecrease={handleDecrease} />
+      <Quantity number={quantity} />
+      <AddButton handleIncrease={handleIncrease} />
     </div>
   );
 }

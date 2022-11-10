@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,6 +10,16 @@ import CustomizeButton from "./CustomizeButton";
 import styles from "./MainCard.module.css";
 
 export default function MainCard({ id, name, price, image }) {
+  const [quantity, setQuantity] = useState(1);
+
+  function handleIncrease() {
+    if (quantity < 5) setQuantity(quantity + 1);
+  }
+
+  function handleDecrease() {
+    if (quantity > 1) setQuantity(quantity - 1);
+  }
+
   return (
     <article className={styles.card}>
       <h2>{name}</h2>
@@ -26,10 +37,14 @@ export default function MainCard({ id, name, price, image }) {
           </div>
         </div>
         <div className={styles.buttons_container}>
-          <QuantityButtons />
+          <QuantityButtons
+            quantity={quantity}
+            handleIncrease={handleIncrease}
+            handleDecrease={handleDecrease}
+          />
           <AddToCartButton />
           <Link href={`/pizzas/${id}`}>
-          <CustomizeButton />
+            <CustomizeButton />
           </Link>
         </div>
       </div>
