@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { getAllPizzaNames } from "../../utils/getAllPizzaNames";
-import { getPizzaData } from "../../utils/getPizzaData";
+import { getAllItemNames } from "../../utils/getAllItemNames";
+import { getItem } from "../../utils/getItem";
+import { createSlices } from "../../utils/createSlices";
 
 import PriceTag from "../../components/common/PriceTag";
 import Quantity from "../../components/common/Quantity";
@@ -12,8 +13,9 @@ import AddToCartButton from "../../components/common/AddToCartButton";
 
 import styles from "./pizzas.module.css";
 
-export default function PizzaDetails({ pizzaData }) {
+export default function PizzaDetails({ item, handleAddToCart }) {
   const [quantity, setQuantity] = useState(1);
+  const [customItem, setCustomItem] = useState(item);
 
   function handleIncrease() {
     if (quantity < 5) setQuantity(quantity + 1);
@@ -23,22 +25,27 @@ export default function PizzaDetails({ pizzaData }) {
     if (quantity > 1) setQuantity(quantity - 1);
   }
 
+  function handleAddItem() {
+    handleAddToCart(customItem, quantity);
+    setQuantity(1);
+  }
+
   return (
     <main className={styles.container}>
       <article className={styles.card}>
-        <h2>{pizzaData.name}</h2>
+        <h2>{item.name}</h2>
         <div>
-          <PriceTag price={pizzaData.price} />
+          <PriceTag price={item.price} />
           <Image
-            src={`/images/${pizzaData.image}`}
-            alt={pizzaData.name}
+            src={`/images/${item.image}`}
+            alt={item.name}
             height={200}
             width={400}
             priority
             className={styles.image}
           />
         </div>
-        <p>{pizzaData.description}</p>
+        <p>{item.description}</p>
         <h3>Personaliza cada cuarto</h3>
         <div className={styles.numbers_container}>
           {[1, 2, 3, 4].map((slice) => (
@@ -46,7 +53,7 @@ export default function PizzaDetails({ pizzaData }) {
           ))}
         </div>
         <div className={styles.ingredients_container}>
-          {pizzaData.ingredients.map((ingredient) => (
+          {item.ingredients.map((ingredient) => (
             <Ingredient key={ingredient} name={ingredient} />
           ))}
         </div>
@@ -59,7 +66,7 @@ export default function PizzaDetails({ pizzaData }) {
             />
           </div>
           <div>
-            <AddToCartButton />
+            <AddToCartButton handleAddItem={handleAddItem} />
           </div>
         </div>
       </article>
@@ -68,7 +75,7 @@ export default function PizzaDetails({ pizzaData }) {
 }
 
 export async function getStaticPaths() {
-  const paths = await getAllPizzaNames();
+  const paths = await getAllItemNames();
   return {
     paths,
     fallback: false,
@@ -76,10 +83,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const pizzaData = await getPizzaData(params.id);
+  const item = createSlices(await getItem(params.id), 4);
+  
   return {
     props: {
-      pizzaData,
+      item,
     },
   };
 }
