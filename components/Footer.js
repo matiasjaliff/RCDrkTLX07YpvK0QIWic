@@ -8,7 +8,7 @@ import styles from "./Footer.module.css";
 export default function Footer({ order }) {
   return (
     <footer className={styles.container}>
-      <Link href="/">
+      <Link href="/" aria-label="Link to home">
         <HouseIcon />
       </Link>
       <CartIcon />

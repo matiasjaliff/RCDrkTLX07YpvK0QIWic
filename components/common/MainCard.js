@@ -9,7 +9,7 @@ import CustomizeButton from "./CustomizeButton";
 
 import styles from "./MainCard.module.css";
 
-export default function MainCard({ id, name, price, image }) {
+export default function MainCard({ item, handleAddToCart }) {
   const [quantity, setQuantity] = useState(1);
 
   function handleIncrease() {
@@ -20,16 +20,21 @@ export default function MainCard({ id, name, price, image }) {
     if (quantity > 1) setQuantity(quantity - 1);
   }
 
+  function handleAddItem() {
+    handleAddToCart(item, quantity);
+    setQuantity(1);
+  }
+
   return (
     <article className={styles.card}>
-      <h2>{name}</h2>
+      <h2>{item.name}</h2>
       <div className={styles.details}>
         <div className={styles.price_image_container}>
-          <PriceTag price={price} />
+          <PriceTag price={item.price} />
           <div className={styles.image_container}>
             <Image
-              src={`/images/${image}`}
-              alt={name}
+              src={`/images/${item.image}`}
+              alt={item.name}
               height={200}
               width={400}
               className={styles.image}
@@ -42,8 +47,8 @@ export default function MainCard({ id, name, price, image }) {
             handleIncrease={handleIncrease}
             handleDecrease={handleDecrease}
           />
-          <AddToCartButton />
-          <Link href={`/pizzas/${id}`}>
+          <AddToCartButton handleAddItem={handleAddItem} />
+          <Link href={`/pizzas/${item.id}`}>
             <CustomizeButton />
           </Link>
         </div>
