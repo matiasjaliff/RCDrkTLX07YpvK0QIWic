@@ -1,9 +1,8 @@
 import { useState } from "react";
+
 import Image from "next/image";
 
-import { getAllItemNames } from "../../utils/getAllItemNames";
-import { getItem } from "../../utils/getItem";
-import { createSlices } from "../../utils/createSlices";
+import { getAllItemIds, getItem } from "../../utils/menu";
 
 import PriceTag from "../../components/common/PriceTag";
 import Quantity from "../../components/common/Quantity";
@@ -75,7 +74,7 @@ export default function PizzaDetails({ item, handleAddToCart }) {
 }
 
 export async function getStaticPaths() {
-  const paths = await getAllItemNames();
+  const paths = getAllItemIds();
   return {
     paths,
     fallback: false,
@@ -83,8 +82,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const item = createSlices(await getItem(params.id), 4);
-  
+  const item = getItem(params.id);
   return {
     props: {
       item,
