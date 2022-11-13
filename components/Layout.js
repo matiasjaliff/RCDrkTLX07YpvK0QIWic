@@ -26,7 +26,7 @@ export default function Layout({ children, order }) {
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <Header />
       {children}

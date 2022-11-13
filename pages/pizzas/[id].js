@@ -5,7 +5,7 @@ import Image from "next/image";
 import { getAllItemIds, getItem } from "../../utils/menu";
 
 import PriceTag from "../../components/common/PriceTag";
-import Quantity from "../../components/common/Quantity";
+import Slice from "../../components/common/Slice";
 import Ingredient from "../../components/common/Ingredient";
 import QuantityButtons from "../../components/common/QuantityButtons";
 import AddToCartButton from "../../components/common/AddToCartButton";
@@ -15,6 +15,7 @@ import styles from "./pizzas.module.css";
 export default function PizzaDetails({ item, handleAddToCart }) {
   const [quantity, setQuantity] = useState(1);
   const [customItem, setCustomItem] = useState(item);
+  const [selectedSlice, setSelectedSlice] = useState(1);
 
   function handleIncrease() {
     if (quantity < 5) setQuantity(quantity + 1);
@@ -24,9 +25,40 @@ export default function PizzaDetails({ item, handleAddToCart }) {
     if (quantity > 1) setQuantity(quantity - 1);
   }
 
+  function toggleIngredient(name) {
+    if (
+      !customItem.slices[selectedSlice].find(
+        (ingredient) => ingredient.name === name
+      ).active ||
+      customItem.slices[selectedSlice].reduce((accumulated, ingredient) => {
+        return (accumulated += ingredient.active ? 0 : 1);
+      }, 0) < 2
+    ) {
+      const modifiedItem = { ...customItem };
+      modifiedItem.slices[selectedSlice].find(
+        (ingredient) => ingredient.name === name
+      ).active = !modifiedItem.slices[selectedSlice].find(
+        (ingredient) => ingredient.name === name
+      ).active;
+      setCustomItem(modifiedItem);
+    }
+  }
+
+  function resetItem() {
+    const resettedItem = { ...customItem };
+    for (let slice in resettedItem.slices) {
+      for (let ingredient of resettedItem.slices[slice]) {
+        ingredient.active = true;
+      }
+    }
+    setCustomItem(resettedItem);
+  }
+
   function handleAddItem() {
     handleAddToCart(customItem, quantity);
     setQuantity(1);
+    setSelectedSlice(1);
+    // resetItem();
   }
 
   return (
@@ -48,12 +80,21 @@ export default function PizzaDetails({ item, handleAddToCart }) {
         <h3>Personaliza cada cuarto</h3>
         <div className={styles.numbers_container}>
           {[1, 2, 3, 4].map((slice) => (
-            <Quantity key={slice} number={slice} />
+            <Slice
+              key={slice}
+              number={slice}
+              selectedSlice={selectedSlice}
+              setSelectedSlice={setSelectedSlice}
+            />
           ))}
         </div>
         <div className={styles.ingredients_container}>
-          {item.ingredients.map((ingredient) => (
-            <Ingredient key={ingredient} name={ingredient} />
+          {customItem.slices[selectedSlice].map((ingredient) => (
+            <Ingredient
+              key={ingredient.name}
+              ingredient={ingredient}
+              toggleIngredient={toggleIngredient}
+            />
           ))}
         </div>
         <div className={styles.actions_container}>
