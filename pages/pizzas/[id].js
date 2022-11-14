@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Image from "next/image";
 
@@ -12,10 +12,14 @@ import AddToCartButton from "../../components/common/AddToCartButton";
 
 import styles from "./pizzas.module.css";
 
+function deepCopy(item) {
+  return JSON.parse(JSON.stringify(item));
+}
+
 export default function PizzaDetails({ item, handleAddToCart }) {
   const [quantity, setQuantity] = useState(1);
-  const [customItem, setCustomItem] = useState(item);
   const [selectedSlice, setSelectedSlice] = useState(1);
+  const [customItem, setCustomItem] = useState(deepCopy(item));
 
   function handleIncrease() {
     if (quantity < 5) setQuantity(quantity + 1);
@@ -34,7 +38,7 @@ export default function PizzaDetails({ item, handleAddToCart }) {
         return (accumulated += ingredient.active ? 0 : 1);
       }, 0) < 2
     ) {
-      const modifiedItem = { ...customItem };
+      const modifiedItem = deepCopy(customItem);
       modifiedItem.slices[selectedSlice].find(
         (ingredient) => ingredient.name === name
       ).active = !modifiedItem.slices[selectedSlice].find(
@@ -44,21 +48,11 @@ export default function PizzaDetails({ item, handleAddToCart }) {
     }
   }
 
-  function resetItem() {
-    const resettedItem = { ...customItem };
-    for (let slice in resettedItem.slices) {
-      for (let ingredient of resettedItem.slices[slice]) {
-        ingredient.active = true;
-      }
-    }
-    setCustomItem(resettedItem);
-  }
-
   function handleAddItem() {
-    handleAddToCart(customItem, quantity);
+    handleAddToCart(deepCopy(customItem), quantity);
     setQuantity(1);
     setSelectedSlice(1);
-    // resetItem();
+    setCustomItem(deepCopy(item))
   }
 
   return (
