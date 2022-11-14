@@ -16,7 +16,7 @@ function deepCopy(item) {
   return JSON.parse(JSON.stringify(item));
 }
 
-export default function PizzaDetails({ item, handleAddToCart }) {
+export default function PizzaDetails({ item, order, handleAddToCart }) {
   const [quantity, setQuantity] = useState(1);
   const [selectedSlice, setSelectedSlice] = useState(1);
   const [customItem, setCustomItem] = useState(deepCopy(item));

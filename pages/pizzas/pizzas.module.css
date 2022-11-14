@@ -22,8 +22,13 @@
 
 .card h2 {
   margin: 0;
-  text-align: center;
-  font-size: 1.5rem;
+  text-align: left;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  padding-left: 1rem;
+  border-radius: 1.75rem;
+  background-color: #3a9446;
+  color: #f6f3f0;
 }
 
 .card > h3 {

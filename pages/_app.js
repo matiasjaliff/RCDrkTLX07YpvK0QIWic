@@ -7,8 +7,8 @@ import "../styles/globals.css";
 export default function MyApp({ Component, pageProps }) {
   const [order, setOrder] = useState([]);
 
-  function handleAddToCart(item, quantity) {
-    const itemToAdd = { item, quantity };
+  function handleAddToCart(details, quantity) {
+    const itemToAdd = { details, quantity };
     setOrder([...order, itemToAdd]);
   }
 

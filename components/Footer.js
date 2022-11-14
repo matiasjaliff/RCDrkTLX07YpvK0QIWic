@@ -11,7 +11,9 @@ export default function Footer({ order }) {
       <Link href="/" aria-label="Link to home">
         <HouseIcon />
       </Link>
-      <CartIcon />
+      <Link href="/cart" aria-label="Link to cart">
+        <CartIcon />
+      </Link>
     </footer>
   );
 }
