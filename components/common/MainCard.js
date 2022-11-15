@@ -36,8 +36,8 @@ export default function MainCard({ item, handleAddToCart }) {
             <Image
               src={`/images/${item.image}`}
               alt={item.name}
-              height={200}
-              width={400}
+              height={150}
+              width={300}
               className={styles.image}
             />
           </div>

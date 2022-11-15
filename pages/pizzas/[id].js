@@ -64,8 +64,8 @@ export default function PizzaDetails({ item, order, handleAddToCart }) {
           <Image
             src={`/images/${item.image}`}
             alt={item.name}
-            height={200}
-            width={400}
+            height={150}
+            width={300}
             priority
             className={styles.image}
           />
