@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   color: #f6f3f0;
   font-weight: 400;
   background-color: #b42026;
