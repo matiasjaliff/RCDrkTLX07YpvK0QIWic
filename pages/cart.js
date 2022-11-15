@@ -1,13 +1,14 @@
 import { useState } from "react";
 
 import CartCard from "../components/common/CartCard";
+import Total from "../components/common/Total";
 import Credit from "../components/common/Credit";
 
 import styles from "./cart.module.css";
 
 export default function cart({ order }) {
   const [credit, setCredit] = useState(2000);
-  
+
   return (
     <>
       <div className={styles.container}>
@@ -15,6 +16,7 @@ export default function cart({ order }) {
           <CartCard key={index} item={item} />
         ))}
       </div>
+      <Total order={order} credit={credit} />
       <Credit credit={credit} setCredit={setCredit} />
     </>
   );
