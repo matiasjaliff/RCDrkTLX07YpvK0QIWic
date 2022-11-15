@@ -3,12 +3,13 @@ import { useEffect } from "react";
 
 import styles from "./confirmed.module.css";
 
-export default function confirmed() {
+export default function confirmed({ setOrder }) {
   const router = useRouter();
 
   useEffect(() => {
+    setOrder([]);
     setTimeout(() => {
-      router.replace("/");
+      router.replace("/", undefined, { shallow: true });
     }, 5000);
   }, []);
 

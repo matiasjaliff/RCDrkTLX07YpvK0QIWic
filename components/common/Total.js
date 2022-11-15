@@ -9,13 +9,12 @@ function calculateTotal(order) {
   );
 }
 
-export default function Total({ order, setOrder, credit }) {
+export default function Total({ order, credit }) {
   let total = calculateTotal(order);
 
   const router = useRouter();
 
   function handleConfirmation() {
-    setOrder([]);
     router.push("/confirmed");
   }
 

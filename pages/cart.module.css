@@ -4,3 +4,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.empty {
+  font-size: large;
+  font-weight: bold;
+}

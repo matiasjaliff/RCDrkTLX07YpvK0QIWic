@@ -12,9 +12,11 @@ export default function cart({ order, setOrder }) {
   return (
     <>
       <div className={styles.container}>
-        {order.map((item, index) => (
+        {order.length ? 
+        order.map((item, index) => (
           <CartCard key={index} item={item} />
-        ))}
+        )) :
+        <p className={styles.empty}>El carrito aún está vacío</p>}
       </div>
       <Total order={order} setOrder={setOrder} credit={credit} />
       <Credit credit={credit} setCredit={setCredit} />
