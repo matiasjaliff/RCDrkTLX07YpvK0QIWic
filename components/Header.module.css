@@ -1,0 +1,16 @@
+.container {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6F3F0;
+}
+
+.logo {
+  width: 80%;
+  height: auto;
+  max-width: 360px;
+}
