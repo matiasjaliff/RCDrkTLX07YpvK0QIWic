@@ -17,6 +17,7 @@ export default function MyApp({ Component, pageProps }) {
       <Component
         {...pageProps}
         order={order}
+        setOrder={setOrder}
         handleAddToCart={handleAddToCart}
       />
     </Layout>

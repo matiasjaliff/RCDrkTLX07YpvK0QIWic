@@ -6,7 +6,7 @@ import Credit from "../components/common/Credit";
 
 import styles from "./cart.module.css";
 
-export default function cart({ order }) {
+export default function cart({ order, setOrder }) {
   const [credit, setCredit] = useState(2000);
 
   return (
@@ -16,7 +16,7 @@ export default function cart({ order }) {
           <CartCard key={index} item={item} />
         ))}
       </div>
-      <Total order={order} credit={credit} />
+      <Total order={order} setOrder={setOrder} credit={credit} />
       <Credit credit={credit} setCredit={setCredit} />
     </>
   );

@@ -1,0 +1,13 @@
+.container {
+  height: 100vh;
+  padding: 80px 1rem 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  color: #3a9446;
+  text-shadow: 1px 1px 1px #3a9446;
+}
