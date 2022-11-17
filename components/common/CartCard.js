@@ -1,3 +1,5 @@
+import { deepCopy } from "../../utils/deepCopy";
+
 import QuantityAndPriceTag from "./QuantityAndPriceTag";
 import SliceTag from "./SliceTag";
 import IngredientsDetail from "./IngredientsDetail";
@@ -6,10 +8,6 @@ import AddButton from "./AddButton";
 import TrashButton from "./TrashButton";
 
 import styles from "./CartCard.module.css";
-
-function deepCopy(item) {
-  return JSON.parse(JSON.stringify(item));
-}
 
 export default function CartCard({ item, order, setOrder }) {
   function handleDecrease() {

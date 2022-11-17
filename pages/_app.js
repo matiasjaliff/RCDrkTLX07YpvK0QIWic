@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { deepCopy } from "../utils/deepCopy";
+
 import Layout from "../components/Layout";
 
 import "../styles/globals.css";
@@ -8,8 +10,37 @@ export default function MyApp({ Component, pageProps }) {
   const [order, setOrder] = useState([]);
 
   function handleAddToCart(details, quantity) {
-    const itemToAdd = { details, quantity };
-    setOrder([...order, itemToAdd]);
+    if (
+      order.find(
+        (element) => JSON.stringify(element.details) === JSON.stringify(details)
+      )
+    ) {
+      const modifiedOrder = deepCopy(order);
+      if (
+        !(
+          modifiedOrder.filter(
+            (element) =>
+              JSON.stringify(element.details) === JSON.stringify(details)
+          )[0].quantity +
+            quantity >
+          5
+        )
+      ) {
+        modifiedOrder.filter(
+          (element) =>
+            JSON.stringify(element.details) === JSON.stringify(details)
+        )[0].quantity += quantity;
+      } else {
+        modifiedOrder.filter(
+          (element) =>
+            JSON.stringify(element.details) === JSON.stringify(details)
+        )[0].quantity = 5;
+      }
+      setOrder(modifiedOrder);
+    } else {
+      const itemToAdd = { details, quantity };
+      setOrder([...order, itemToAdd]);
+    }
   }
 
   return (
