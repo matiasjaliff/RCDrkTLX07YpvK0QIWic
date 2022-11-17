@@ -14,7 +14,7 @@ export default function cart({ order, setOrder }) {
       <div className={styles.container}>
         {order.length ? 
         order.map((item, index) => (
-          <CartCard key={index} item={item} />
+          <CartCard key={index} item={item} order={order} setOrder={setOrder}/>
         )) :
         <p className={styles.empty}>El carrito aún está vacío</p>}
       </div>
