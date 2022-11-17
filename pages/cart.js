@@ -16,7 +16,7 @@ export default function cart({ order, setOrder }) {
         order.map((item, index) => (
           <CartCard key={index} item={item} order={order} setOrder={setOrder}/>
         )) :
-        <p className={styles.empty}>El carrito aún está vacío</p>}
+        <p className={styles.empty}>El carrito está vacío</p>}
       </div>
       <Total order={order} setOrder={setOrder} credit={credit} />
       <Credit credit={credit} setCredit={setCredit} />

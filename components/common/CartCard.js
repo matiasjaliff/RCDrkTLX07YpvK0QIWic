@@ -1,6 +1,8 @@
 import QuantityAndPriceTag from "./QuantityAndPriceTag";
 import SliceTag from "./SliceTag";
 import IngredientsDetail from "./IngredientsDetail";
+import RemoveButton from "./RemoveButton";
+import AddButton from "./AddButton";
 import TrashButton from "./TrashButton";
 
 import styles from "./CartCard.module.css";
@@ -10,6 +12,26 @@ function deepCopy(item) {
 }
 
 export default function CartCard({ item, order, setOrder }) {
+  function handleDecrease() {
+    if (item.quantity > 1) {
+      const modifiedOrder = deepCopy(order);
+      modifiedOrder.filter(
+        (element) => JSON.stringify(element) === JSON.stringify(item)
+      )[0].quantity--;
+      setOrder(modifiedOrder);
+    }
+  }
+
+  function handleIncrease() {
+    if (item.quantity < 5) {
+      const modifiedOrder = deepCopy(order);
+      modifiedOrder.filter(
+        (element) => JSON.stringify(element) === JSON.stringify(item)
+      )[0].quantity++;
+      setOrder(modifiedOrder);
+    }
+  }
+
   function handleDelete() {
     const modifiedOrder = deepCopy(order).filter(
       (element) => JSON.stringify(element) !== JSON.stringify(item)
@@ -40,7 +62,11 @@ export default function CartCard({ item, order, setOrder }) {
         <div className={styles.subtotal}>
           Subtotal: $ {item.quantity * item.details.price}
         </div>
-        <TrashButton handleDelete={handleDelete}/>
+        <div className={styles.buttons_container}>
+          <RemoveButton handleDecrease={handleDecrease} />
+          <AddButton handleIncrease={handleIncrease} />
+          <TrashButton handleDelete={handleDelete} />
+        </div>
       </div>
     </article>
   );
