@@ -3,10 +3,10 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import PriceTag from "./PriceTag";
-import QuantityButtons from "./QuantityButtons";
-import AddToCartButton from "./AddToCartButton";
-import CustomizeButton from "./CustomizeButton";
+import PriceTag from "../shared/PriceTag";
+import QuantityButtons from "../shared/QuantityButtons";
+import AddToCartButton from "../shared/AddToCartButton";
+import CustomizeButton from "../shared/CustomizeButton";
 
 import styles from "./MainCard.module.css";
 
@@ -49,7 +49,7 @@ export default function MainCard({ item, handleAddToCart }) {
             handleDecrease={handleDecrease}
           />
           <AddToCartButton handleAddItem={handleAddItem} />
-          <Link href={`/pizzas/${item.id}`}>
+          <Link href={`/details/${item.id}`}>
             <CustomizeButton />
           </Link>
         </div>

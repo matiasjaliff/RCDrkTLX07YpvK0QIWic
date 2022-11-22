@@ -1,11 +1,11 @@
-import { deepCopy } from "../../utils/deepCopy";
+import { deepCopy } from "../../lib/deepCopy";
 
 import QuantityAndPriceTag from "./QuantityAndPriceTag";
 import SliceTag from "./SliceTag";
 import IngredientsDetail from "./IngredientsDetail";
-import RemoveButton from "./RemoveButton";
-import AddButton from "./AddButton";
-import TrashButton from "./TrashButton";
+import RemoveButton from "../shared/RemoveButton";
+import AddButton from "../shared/AddButton";
+import TrashButton from "../shared/TrashButton";
 
 import styles from "./CartCard.module.css";
 

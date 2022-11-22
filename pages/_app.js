@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { deepCopy } from "../utils/deepCopy";
+import { deepCopy } from "../lib/deepCopy";
 
-import Layout from "../components/Layout";
+import Layout from "../components/shared/Layout";
 
-import "../styles/globals.css";
+import "./globals.css";
 
 export default function MyApp({ Component, pageProps }) {
   const [order, setOrder] = useState([]);

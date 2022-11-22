@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import CartCard from "../components/common/CartCard";
-import Total from "../components/common/Total";
-import Credit from "../components/common/Credit";
+import CartCard from "../components/cart/CartCard";
+import Total from "../components/cart/Total";
+import Credit from "../components/cart/Credit";
 
 import styles from "./cart.module.css";
 

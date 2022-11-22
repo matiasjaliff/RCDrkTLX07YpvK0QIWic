@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 
 import Image from "next/image";
 
-import { getAllItemIds, getItem } from "../../utils/menu";
-import { deepCopy } from "../../utils/deepCopy";
+import { getAllItemIds, getItem } from "../../lib/menu";
+import { deepCopy } from "../../lib/deepCopy";
 
-import PriceTag from "../../components/common/PriceTag";
-import Slice from "../../components/common/Slice";
-import Ingredient from "../../components/common/Ingredient";
-import QuantityButtons from "../../components/common/QuantityButtons";
-import AddToCartButton from "../../components/common/AddToCartButton";
+import PriceTag from "../../components/shared/PriceTag";
+import Slice from "../../components/details/Slice";
+import Ingredient from "../../components/details/Ingredient";
+import QuantityButtons from "../../components/shared/QuantityButtons";
+import AddToCartButton from "../../components/shared/AddToCartButton";
 
-import styles from "./pizzas.module.css";
+import styles from "./details.module.css";
 
 export default function PizzaDetails({ item, order, handleAddToCart }) {
   const [quantity, setQuantity] = useState(1);
