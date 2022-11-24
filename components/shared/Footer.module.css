@@ -13,3 +13,7 @@
 .icon {
   background-color: #FAAB19;
 }
+
+.cart_icon_container {
+  position: relative;
+}
