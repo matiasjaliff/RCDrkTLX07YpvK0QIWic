@@ -1,5 +1,5 @@
-import CheckButton from "./CheckButton";
-import XmarkButton from "./XmarkButton";
+import CheckButton from "../shared/CheckButton";
+import XmarkButton from "../shared/XmarkButton";
 
 import styles from "./Ingredient.module.css";
 

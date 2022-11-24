@@ -37,3 +37,7 @@ next-env.d.ts
 
 # rviewer
 /.idea/
+
+# next-pwa
+sw.js*
+workbox-*.js*

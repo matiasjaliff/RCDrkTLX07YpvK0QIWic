@@ -1,6 +1,6 @@
-import { getFullMenu } from "../utils/menu";
+import { getFullMenu } from "../lib/menu";
 
-import MainCard from "../components/common/MainCard";
+import MainCard from "../components/home/MainCard";
 
 import styles from "./index.module.css";
 
