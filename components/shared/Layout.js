@@ -8,7 +8,7 @@ export default function Layout({ children, order }) {
     <>
       <Head>
         <title>Buon APPetito</title>
-        <meta name="description" content="Ordena las pizzas de la galaxia" />
+        <meta name="description" content="Ordena las mejores pizzas de la galaxia" />
         <meta name="theme-color" content="#b42026"/>
         <link
           rel="apple-touch-icon"
