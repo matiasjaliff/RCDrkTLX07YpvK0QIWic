@@ -1,0 +1,19 @@
+.container {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #b42026;
+}
+
+.icon {
+  background-color: #FAAB19;
+}
+
+.cart_icon_container {
+  position: relative;
+}

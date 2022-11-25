@@ -1,0 +1,40 @@
+.container {
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  bottom: 80px;
+  background-color: #FAAB19;
+  border-bottom: 4px solid #f6f3f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0.5rem 1rem;
+  align-items: center;
+}
+
+.credit {
+  width: 60%;
+  font-size: large;
+  font-weight: 500;
+  color: #b42026;
+}
+
+.credit p {
+  text-align: center;
+  font-size: medium;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  height: 2rem;
+  width: 7rem;
+  line-height: 2rem;
+  cursor: pointer;
+  color: #f6f3f0;
+  background-color: #3a9446;
+  border-radius: 1rem;
+  font-weight: 500;
+  text-align: center;
+}

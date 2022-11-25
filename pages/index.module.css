@@ -1,0 +1,6 @@
+.container {
+  padding: 80px 1rem 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

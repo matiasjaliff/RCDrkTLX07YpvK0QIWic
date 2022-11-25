@@ -1,0 +1,47 @@
+[
+  {
+    "id": "margarita",
+    "name": "Margarita",
+    "price": 1600,
+    "description": "Salsa de tomates italianos, mozzarella y albahaca, terminada con queso parmesano, pimienta negra y oliva.",
+    "ingredients": ["Albahaca", "Queso parmesano", "Pimienta negra", "Oliva"],
+    "image": "margarita.png"
+  },
+  {
+    "id": "pepperoni",
+    "name": "Pepperoni",
+    "price": 1750,
+    "description": "Salsa de tomates italianos, mozzarella y auténtico pepperoni. Terminada con pimienta negra y oliva.",
+    "ingredients": ["Pepperoni", "Pimienta negra", "Oliva"],
+    "image": "pepperoni.png"
+  },
+  {
+    "id": "mediterranea",
+    "name": "Mediterránea",
+    "price": 1800,
+    "description": "Salsa de tomates italianos, mozzarella, tomates cherry, aceitunas negras, terminada con pimienta negra, oliva con ajo y pesto de albahaca.",
+    "ingredients": [
+      "Aceitunas negras",
+      "Pimienta negra",
+      "Oliva con ajo",
+      "Pesto de albahaca"
+    ],
+    "image": "mediterranea.png"
+  },
+  {
+    "id": "fugazza",
+    "name": "Fugazza",
+    "price": 1350,
+    "description": "Mozzarella, cebollas moradas y orégano, terminada con queso parmesano, pimienta negra y oliva.",
+    "ingredients": ["Orégano", "Queso parmesano", "Pimienta negra", "Oliva"],
+    "image": "fugazza.png"
+  },
+  {
+    "id": "hongos",
+    "name": "Hongos",
+    "price": 2250,
+    "description": "Salsa de tomates italianos, mozzarella, hongos frescos portobello, jamón cocido natural, terminada con albahaca, pimienta negra y oliva.",
+    "ingredients": ["Jamón cocido", "Albahaca", "Pimienta negra", "Oliva"],
+    "image": "hongos.png"
+  }
+]

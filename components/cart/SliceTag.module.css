@@ -1,0 +1,14 @@
+.tag {
+  width: 6rem;
+  height: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  color: #f6f3f0;
+  font-weight: 400;
+  background-color: #b42026;
+  border-radius: 1.25rem;
+  text-align: center;
+  font-size: small;
+}
